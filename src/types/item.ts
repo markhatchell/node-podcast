@@ -1,8 +1,9 @@
 import { ItemEnclosure } from "./item-enclosure";
 import { FeedCustomElement } from "./feed-custom-element";
 import { ItemITunes } from "./item-itunes";
+import { ItemPodcastNS } from "./item-podcastns"
 import { ItemSimpleChapters } from "./item-simple-chapters";
-export interface Item extends ItemITunes, ItemSimpleChapters {
+export interface Item extends ItemITunes, ItemSimpleChapters, ItemPodcastNS {
   /** Title of this particular item. */
   title: string;
   /** Content for the item. Can contain html but link and image urls must be absolute path including hostname. */

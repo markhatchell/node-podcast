@@ -19,4 +19,5 @@ export * from "./item-simple-chapters-chapters-element";
 export * from "./item-simple-chapters-chapters";
 export * from "./item-simple-chapters";
 export * from "./itunes-explicit";
+export * from "./item-podcastns";
 export * from "./warned-positions";

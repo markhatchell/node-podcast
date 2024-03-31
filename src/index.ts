@@ -220,6 +220,14 @@ export class Podcast {
     return customElements;
   }
 
+  protected getPodcastNSElements(itemOptions: ItemOptions) {
+    const customElements: FeedCustomElement[] = [];
+    if (itemOptions.podcastTranscript)
+      customElements.push({"podcast:transcript": itemOptions.podcastTranscript})
+
+    return customElements;
+  }
+
   addItem(itemOptions: ItemOptions): void {
     const item: ItemOptions = { ...itemOptions };
     item.customElements = item.customElements || [];
@@ -245,6 +253,12 @@ export class Podcast {
       ];
     }
 
+    if (this.options.namespaces?.podcast) {
+      item.customElements = [
+        ...(item.customElements || []),
+        ...this.getPodcastNSElements(itemOptions),
+      ]
+    }
     this.items.push(item as Item);
     return;
   }
