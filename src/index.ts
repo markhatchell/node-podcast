@@ -223,7 +223,15 @@ export class Podcast {
   protected getPodcastNSElements(itemOptions: ItemOptions) {
     const customElements: FeedCustomElement[] = [];
     if (itemOptions.podcastTranscript)
-      customElements.push({"podcast:transcript": itemOptions.podcastTranscript})
+      customElements.push({"podcast:transcript":  {
+      _attr: {
+          url: itemOptions.podcastTranscript.url,
+          type: itemOptions.podcastTranscript.type,
+          language: itemOptions.podcastTranscript.language,
+          rel: itemOptions.podcastTranscript.rel
+        }
+      }
+    })
 
     return customElements;
   }
